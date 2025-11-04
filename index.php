@@ -11,7 +11,13 @@
     <a href="#...">XXX</a> |
 </div>-->
 <div id="content">
-<h2>List of available demo servers</h2>
+<h2>Available debuggers</h2>
+<ul>
+    <li><a href="vendor/phpxmlrpc/phpxmlrpc/debugger/index.php">Xml-Rpc</a></li>
+    <li><a href="vendor/phpxmlrpc/jsonrpc/debugger/index.php">Json-Rpc</a></li>
+</ul>
+
+<h2>Available demo servers</h2>
 <?php
     // scan for all .php server files in the 3 known demo directories
     $dirs = array(
