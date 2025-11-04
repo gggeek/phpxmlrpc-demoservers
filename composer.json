@@ -1,0 +1,9 @@
+{
+  "name": "phpxmlrpc/all-in-one",
+  "description": "Pulling together all the different phpxmlrpc packages to provide batteries-included demo servers",
+  "require": {
+    "phpxmlrpc/phpxmlrpc": "^4.11.4",
+    "phpxmlrpc/jsonrpc": "^1.0.0",
+    "phpxmlrpc/extras": "^1.0.0"
+  }
+}

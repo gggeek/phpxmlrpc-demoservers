@@ -1,0 +1,8 @@
+# Block access
+
+# Apache 2.4
+#Require all denied
+
+# Apache 2.2 - used by Siteground
+Order deny,allow
+Deny from all
