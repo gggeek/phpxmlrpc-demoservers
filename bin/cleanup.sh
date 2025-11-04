@@ -17,7 +17,9 @@ for DIR in $DIRS; do
 done
 
 FILES="jsonrpc/demo/server/codegen.php jsonrpc/demo/server/discuss.php jsonrpc/demo/server/legacy.php jsonrpc/demo/server/proxy.php \
-phpxmlrpc/demo/vardemo.php phpxmlrpc/demo/server/codegen.php phpxmlrpc/demo/server/discuss.php phpxmlrpc/demo/server/legacy.php phpxmlrpc/demo/server/proxy.php"
+jsonrpc/demo/server/methodProviders/CommentManager.php jsonrpc/demo/server/methodProviders/testsuite.php jsonrpc/demo/server/methodProviders/wrapper.php \
+phpxmlrpc/demo/vardemo.php phpxmlrpc/demo/server/codegen.php phpxmlrpc/demo/server/discuss.php phpxmlrpc/demo/server/legacy.php phpxmlrpc/demo/server/proxy.php \
+phpxmlrpc/demo/server/methodProviders/CommentManager.php phpxmlrpc/demo/server/methodProviders/testsuite.php phpxmlrpc/demo/server/methodProviders/wrapper.php"
 
 for FILE in $FILES; do
     if [ -f "vendor/phpxmlrpc/$FILE" ]; then

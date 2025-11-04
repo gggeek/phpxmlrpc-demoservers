@@ -7,6 +7,10 @@
     "phpxmlrpc/jsonrpc": "^1.0.0",
     "phpxmlrpc/extras": "^1.0.0"
   },
+  "scripts": {
+    "post-install-cmd": "./bin/cleanup.sh",
+    "post-update-cmd": "./bin/cleanup.sh"
+  },
   "config": {
     "preferred-install": {
         "phpxmlrpc/phpxmlrpc": "source",

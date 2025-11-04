@@ -10,6 +10,6 @@ cd "$(dirname -- "$(dirname -- "$(readlink -f "$0")")")"
 CANARY="./var/canary/please_update.txt"
 
 if [ -f "$CANARY" ]; then
-    ./update_app.sh
+    ./bin/update_app.sh
     rm "$CANARY"
 fi
