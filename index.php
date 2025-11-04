@@ -13,11 +13,12 @@
 <div id="content">
 <h2>List of available demo servers</h2>
 <?php
-    /// @todo scan for all .php files in the 3 known demo directories
+    // scan for all .php server files in the 3 known demo directories
     $dirs = array(
         'PhpXmlRpc' => 'phpxmlrpc/demo/server',
-        'PhpjsonRpc' => 'jsonrpc/demo/server',
+        'PhpJsonRpc' => 'jsonrpc/demo/server',
         'PhpXmlRpc Extras' => 'extras/demo/server');
+
     foreach ($dirs as $package => $dir) {
         echo "<h3>" . htmlspecialchars($package) . "</h3>\n<ul>\n";
         foreach (scandir(__DIR__ . '/vendor/phpxmlrpc/' . $dir) as $file) {

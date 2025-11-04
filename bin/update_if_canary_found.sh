@@ -10,6 +10,8 @@ cd "$(dirname -- "$(dirname -- "$(readlink -f "$0")")")"
 CANARY="./var/canary/please_update.txt"
 
 if [ -f "$CANARY" ]; then
+    # @todo run a `git pull` and check if any change to self is detected
+
     ./bin/update_app.sh
     rm "$CANARY"
 fi
