@@ -8,8 +8,16 @@
     "phpxmlrpc/extras": "dev-master as 1.0.1"
   },
   "scripts": {
-    "post-install-cmd": "./bin/cleanup.sh",
-    "post-update-cmd": "./bin/cleanup.sh"
+    "post-install-cmd": [
+      "chmod 755 ./vendor/phpxmlrpc/phpxmlrpc/taskfile",
+      "./vendor/phpxmlrpc/phpxmlrpc/taskfile setup_debugger_visualeditor",
+      "chmod 755 ./vendor/phpxmlrpc/jsonrpc/taskfile",
+      "./vendor/phpxmlrpc/jsonrpc/taskfile setup_debugger_visualeditor",
+      "./bin/cleanup.sh"
+    ],
+    "post-update-cmd": [
+      "./bin/cleanup.sh"
+    ]
   },
   "config": {
     "preferred-install": {

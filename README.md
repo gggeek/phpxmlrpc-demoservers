@@ -11,7 +11,7 @@ Requirements and Installation
 
 * PHP (version 5.4 or later, as required by PHPXMLRPC, PHPJSONRPC and PHPXMLRPC-Extras)
 * Composer
-* Git, Bash and a few other linux cli tools
+* bash, curl, git, grep, unzip, shasum and a few other common linux cli tools
 * A web server able to run php (recommended: servers supporting `.htaccess` files)
 
 ### To install
