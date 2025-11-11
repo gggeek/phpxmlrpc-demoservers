@@ -8,9 +8,10 @@ LOGFILE="$BASEDIR/var/update.log"
 
 cd "$BASEDIR"
 
-CANARY="./var/canary/please_update.txt"
+CANARY_FILE="./var/canary/please_update.txt"
+FTP_STATE_FILE="./var/canary/.ftp-deploy-sync-state.json"
 
-if [ -f "$CANARY" ]; then
+if [ -f "$CANARY_FILE" ]; then
 
     echo "[$(date)] Canary file found" >> "$LOGFILE"
 
@@ -35,6 +36,11 @@ if [ -f "$CANARY" ]; then
         fi
 
         echo "[$(date)] Removing the canary file" >> "$LOGFILE"
-        rm "$CANARY"
+        rm "$CANARY_FILE"
+
+        # Remove a file left over from the github action we use for ftp creation of the canary file
+        if [ -f "$FTP_STATE_FILE" ]; then
+            rm "$FTP_STATE_FILE"
+        fi
     fi
 fi
