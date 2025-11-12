@@ -18,7 +18,7 @@ if [ -f "$CANARY_FILE" ]; then
     # @todo stop attempting to update if the canary file is too old, as that means most likely a file permissions
     #       issue or some other permanent configuration problem
 
-    echo "[$(date)] Updating self" >> "$LOGFILE"
+    echo "[$(date)] Updating self (git pull)..." >> "$LOGFILE"
     CHECKSUM="$(shasum "$(readlink -f "$0")")"
     git pull >> "$LOGFILE"
     if [ "$?" != 0 ]; then
@@ -26,12 +26,15 @@ if [ -f "$CANARY_FILE" ]; then
     fi
 
     if [ "$(shasum "$(readlink -f "$0")")" != "$CHECKSUM" ]; then
-        echo "[$(date)] Update script changed! Restarting it..." >> "$LOGFILE"
+        echo "[$(date)] Update script (self) changed! Restarting it..." >> "$LOGFILE"
         . "$(readlink -f "$0")"
     else
-        ./bin/update_app.sh >> "$LOGFILE"
+        echo "[$(date)] Running the apps update script..." >> "$LOGFILE"
+        # The update_app.sh script runs composer, which has some output on both stdout and stderr.
+        # We try avoiding triggering cron emails by piping it all into the log file
+        ./bin/update_app.sh >> "$LOGFILE" 2>&1
         if [ "$?" != 0 ]; then
-            echo "[$(date)] Updating the apps failed! Not removing the canary file..." >> "$LOGFILE"
+            echo "[$(date)] Updating the apps failed! Exiting without removing the canary file" >> "$LOGFILE"
             exit 1
         fi
 
@@ -43,4 +46,6 @@ if [ -f "$CANARY_FILE" ]; then
             rm "$FTP_STATE_FILE"
         fi
     fi
+
+    echo "[$(date)] Done" >> "$LOGFILE"
 fi

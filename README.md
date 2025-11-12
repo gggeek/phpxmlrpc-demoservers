@@ -22,11 +22,14 @@ Requirements and Installation
 ### Fine-tuning the installation
 
 * in order to allow the servers to answers CORS preflight requests, use the php.ini setting `auto_prepend_file` to always
-  load `./bin/config/_prepend.php`
+  load `./config/_prepend.php`
 * if the web server does not support .htaccess files: configure it to deny access to directories `./bin`, `./config`
 * to allow auto-upgrade of the 3 bundled libraries, set up a cron-job to execute periodically the script
   `./bin/update_if_canary_found.sh`. Then external processes will be able to trigger the upgrade via creating the file
-  `./var/canary/please_update.txt`. This could be done eg. via a github action job with an ftp step.
+  `./var/canary/please_update.txt`. This could be done eg. via a github action job with a ftp step.
+  NB: the cron-job will execute a `git pull` of itself (this project). In order for that to work, you most likely will
+  have to set up some authentication means, such as f.e. creating a keypair on the taregt server, and uploading the public
+  key to this project's github settings.
 
 License
 -------
