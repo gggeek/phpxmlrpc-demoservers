@@ -3,9 +3,9 @@
   "license": "BSD-3-Clause",
   "description": "Pulling together all the different phpxmlrpc packages to provide batteries-included demo servers and debuggers",
   "require": {
-    "phpxmlrpc/phpxmlrpc": "dev-master as 4.11.5",
-    "phpxmlrpc/jsonrpc": "dev-master as 1.0.1",
-    "phpxmlrpc/extras": "dev-master as 1.0.1"
+    "phpxmlrpc/phpxmlrpc": "^4.11.5",
+    "phpxmlrpc/jsonrpc": "^1.0.1",
+    "phpxmlrpc/extras": "^1.0.1"
   },
   "scripts": {
     "post-install-cmd": [
