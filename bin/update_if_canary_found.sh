@@ -20,7 +20,7 @@ if [ -f "$CANARY_FILE" ]; then
 
     echo "[$(date)] Updating self (git pull)..." >> "$LOGFILE"
     CHECKSUM="$(shasum "$(readlink -f "$0")")"
-    git pull >> "$LOGFILE"
+    git pull >> "$LOGFILE" 2>&1
     if [ "$?" != 0 ]; then
         echo "[$(date)] Updating self failed! Going on anyway..." >> "$LOGFILE"
     fi
